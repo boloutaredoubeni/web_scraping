@@ -36,6 +36,5 @@ with open('top_scifi_movies.csv', 'w') as csvfile:
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
     writer.writeheader()
     rank_movie_lst = {k['movie_rank']:k for k in rank_movie_lst}.values()
-    # TODO: sort
     rank_movie_lst.sort(cmp=lambda a, b: cmp(int(a['movie_rank']), int(b['movie_rank'])))
     map(writer.writerow, rank_movie_lst)
